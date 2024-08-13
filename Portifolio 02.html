@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfólio de BI - Thiago José</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;text-align: justify;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #F0F0F0, #F0F0F0);
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: margin-bottom;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .button1 {
+            background-color: #04AA6D; /* Cor verde padrão */
+        }
+
+        .button2 {
+            background-color: #008CBA; /* Cor azul padrão */
+        }
+
+        /* Alterar a cor de fundo quando o cursor estiver em cima */
+        .button1:hover {
+	    			/* Nova cor verde quando hover */
+            background-color: #062b83;
+        }
+
+        .button2:hover {
+            /* Nova cor azul quando hover */
+            background-color: #005A7F; 
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 25%;
+            background: linear-gradient(to bottom, #062b83, #31e2b3);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        .sidebar img {
+            width: 180px;
+            height: 180px;
+            border-radius: 0px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar h2, .sidebar h3 {
+            margin: 15px 0;
+        }
+
+        .sidebar hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background: #ffffff;
+        }
+
+        .sidebar p, .sidebar a {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .sidebar p img, .sidebar a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .main {
+            width: 75%;
+            padding: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #343a40;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav ul li a.active {
+            color: #ffffff;
+            background-color: #062b83; /* Cor de destaque para a página ativa */
+        }
+
+        nav ul li a:hover {
+            background-color: #0056b3; /* Cor de destaque ao passar o mouse */
+            color: #ffffff;
+        }
+
+        section {
+            display: none;
+            margin-bottom: 40px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        section hr {
+            margin-bottom: 20px;
+            border: 0;
+            height: 1px;
+            background: #343a40;
+        }
+
+        .competencias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .competencia {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            width: calc(50% - 20px);
+        }
+
+        .competencia img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .timeline .linha-do-tempo {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline .evento {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .timeline .evento .bolinha {
+            width: 15px;
+            height: 15px;
+            background-color: #343a40;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .timeline .evento .bolinha::after {
+            content: '';
+            width: 2px;
+            height: 100%;
+            background-color: #343a40;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline .evento:last-child .bolinha::after {
+            height: 50%;
+        }
+
+        .timeline .evento .conteudo h3 {
+            margin-bottom: 5px;
+        }
+
+        .habilidades {
+            margin-top: 40px;
+        }
+
+        .habilidades hr {
+            margin-top: 40px;
+        }
+
+        .habilidades .grafico-de-barras {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .habilidade {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .habilidade span {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .barra {
+            width: 300px;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .barra span {
+            display: block;
+            height: 100%;
+            background-color: #343a40;
+        }
+
+        .filtros a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #343a40;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .projetos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .shadow-text {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .projeto {
+            width: calc(33.333% - 20px);
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .projeto img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .bttn-container {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 80%;
+        }
+        .bttn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #062b83;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .bttn:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #343a40;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #495057;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar, .main {
+                width: 100%;
+            }
+
+            .competencia, .projeto {
+                width: 100%;
+            }
+				}
+
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('nav ul li a');
+            const sections = document.querySelectorAll('section');
+
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                const activeSection = document.getElementById(sectionId);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.getAttribute('data-section');
+                    showSection(sectionId);
+                });
+            });
+
+            // Mostrar a seção "sobre" por padrão
+            showSection('portifolio');
+        });
+    </script>
+</head>
+
+ 
+ 
+<!-- CORPO DO PROJETO -->
+<body>
+  	<!-- Menu Lateral -->
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <img src="https://media.licdn.com/dms/image/D4D03AQE7GYyjqENaNQ/profile-displayphoto-shrink_800_800/0/1711737100287?e=1725494400&v=beta&t=IyMeDmQRwILeZ1sHdfD_iFXwGn53IaOW3ybXeOvI1RI" alt="Foto do Perfil">
+                <h1>Thiago José</h1>
+                <h3 class="shadow-text">Analista de Dados</h3>
+                  <center>
+                    <a href="http://linkedin.com/in/thiago-jcarrijo" alt="LinkedIn" style="display: inline-block;"><img src="https://i.ibb.co/KjKp08J/wzp.png" alt="Telefone Icon"></a>
+										<a href="http://linkedin.com/in/thiago-jcarrijo" alt="LinkedIn" style="display: inline-block;"><img src="https://i.ibb.co/R0M41Kz/insta.png" alt="Telefone Icon"></a>
+                    <a href="http://linkedin.com/in/thiago-jcarrijo" alt="LinkedIn" style="display: inline-block;"><img src="https://i.ibb.co/hRcfM30/email.png" alt="Telefone Icon"></a>
+                    <a href="http://linkedin.com/in/thiago-jcarrijo" alt="LinkedIn" style="display: inline-block;"><img src="https://i.ibb.co/LC4zVbd/icon-youtube.png" alt="Telefone Icon"></a>
+                    <a href="http://linkedin.com/in/thiago-jcarrijo" alt="LinkedIn" style="display: inline-block;"><img src="https://i.ibb.co/gZkTCGF/linkedin-Icon.png" alt="Telefone Icon"></a>
+                  </center>
+            </div>
+        </div>
+
+				<!-- Navegação -->
+        <div class="main">
+            <nav>
+                <ul>
+                    <li><a data-section="curriculo">Currículo</a></li> •
+                    <li><a data-section="portifolio">Power BI</a></li> •
+                    <li><a data-section="Outros">SQL e Python</a></li>
+                </ul>
+            </nav>
+						
+          	<!-- SOBRE -->
+            <section id="curriculo">
+                <h1>Sobre</h1>
+                <hr>
+                <p>
+									Meu nome é Thiago José Ferreira Carrijo, um analista de dados apaixonado por transformar
+                  dados em insights estratégicos. Com uma formação sólida em análise de dados, adquiri
+                  vasta experiência em ferramentas como Power BI, Excel, SQL e Python. Já atuei como
+                  Analista Fiscal, Contabil e Comercial, e estou constantemente buscando maneiras de otimizar
+                  processos e melhorar a tomada de decisões através de dados.
+             		</p>
+								<br>
+                <p>
+									Em minha jornada profissional já tive passagens por diferentes setores, dentro do varejo
+                  já atuei em diversos departamentos, e tive uma passagem boa também pela contabilidade, aonde
+                  desenvolvi diversos relatórios que foi de suma importância para execução das minhas atividades
+                  no dia a dia. Estou focado em me aprimorar e me desenvolver cada vez mais na análise de dados
+                  e nas ferramentas necessárias para.
+								</p>
+								<br>
+                <p>
+									Acredito no poder do aprendizado contínuo e da inovação tecnológica para melhorar processos
+                  de negócios e proporcionar vantagens competitivas. No meu tempo livre, atuo como criador de
+                  conteúdo para o Youtube, com enfase em análise de dados, para tentar ajudar mais profissionais
+                  a desenvolverem suas habilidades.
+								</p>
+								<br>
+                <br>
+								<!-- COMPETÊNCIAS -->
+								<h1>Competências</h1>
+                <hr>
+                <div class="competencias">
+                    <div class="competencia">
+                        <div>
+                            <h4><center>📊 Análise de Dados</center></h4><br>
+                            <p>
+                              • Transformação de dados brutos em insights acionáveis para apoiar na tomada de
+                              decisões estratégicas. <br><br>
+                              • Utilização de ferramentas como Power BI, Excel e SQL para criar relatórios interativos
+                              e detalhados. <br><br>
+                              • Aplicação de técnicas estatísticas e modelos preditivos para identificar tendências e
+                              padrões.
+                          	</p>
+                        </div>
+                    </div>
+                    
+                  	<div class="competencia">
+                        <div>
+                            <h4><center>🧠 Business Intelligence (BI)</center></h4><br>
+                            <p>
+                              • Desenvolvimento e implementação de soluções de BI para melhorar a eficiência operacional
+                              e a competitividade de negócios. <br><br>
+                              • Criação de relatórios automatizados e painéis de controle que ofeream uma visão clara e 
+                              precisa do desempenho organizacional. <br><br>
+                              • Integração de diferentes fontes de dados para fornecer uma visão holística dos processos
+                              de negócios.
+                          	</p>
+                        </div>
+                    </div>
+
+                    <div class="competencia">
+                        <div>
+                            <h4><center>⚙️ Automação de Processos</center></h4><br>
+                            <p>
+                              • Uso de VBA e Pyhon para automatizar tarefas repetitivas e melhorar a produtividade. <br><br>
+                              • Desenvolvimento de scripts e macros para geração automática de relatórios e análises. <br><br>
+                              • Implementação de soluções de automação que reduzem erros e economizam tempo.
+                          	</p>
+                        </div>
+                    </div>
+
+                    <div class="competencia"><br>
+                        <div>
+                            <h4><center>🗂️ Gestão de Projetos</center></h4><br>
+                            <p>
+                              • Planejamento, execução e monitoramento de projetos de análise de dados e BI. <br><br>
+                              • Coordenação de equipes e comunicação eficaz com stakeholders para garantir a entrega de projetos
+                              dentro do prazo e do orçamento. <br><br>
+                              • Utilização de metodologia ágeis para melhorar a flexibilidade e adaptabilidade dos projetos.
+                          	</p>
+                        </div>
+                    </div>
+
+              	</div>
+            </section>
+
+          	<!-- RESUMO -->
+            <section id="resumo">
+                <h1>Resumo</h1>
+                <hr>
+                <div class="timeline">
+                    <div class="linha-do-tempo">
+                        <h2>Trabalhos</h2><br>
+                        <div class="evento">
+                            <div class="conteudo">
+                                <h3>Analista contábil</h3>
+                                <p>03-2024 até 07-2024</p>
+                                <p>
+                                  • Gerenciamento de Rotinas Contábeis e Fiscais para empresas do Simples
+                                  Nacional ou Lucro Presumido. <br><br>
+																	• Automação de processos utilizando Excel e Power Query, resultando numa
+                                  redução significativa nas conferências dos lançamentos. <br><br>
+																	• Realização de auditorias e conciliações financeiras, melhorando a precisão
+                                  dos relatórios. <br><br>
+																	• Geração de relatórios fiscais e contábeis para os clientes. <br><br>
+                                  • Uso do ERP - Domínio. <br><br>
+                              	</p>
+                            </div>
+                        </div>
+                        <div class="evento">
+                            <div class="conteudo">
+                                <h3>Analista comercial</h3>
+                                <p>03-2020 até 02-2024</p>
+                                <p>
+                                  • Desenvolvimento e apresentação de relatório com análise de mercado (pricing)
+                                  e acompanhamento das vendas usando ferramentas de BI. <br><br>
+																	• Criação de POPs (Processos de Operação Padrão), aumentando a eficiência 
+                                  operacional. <br><br>
+																	• Coordenando a equipe de Supply Chain, melhorando a distribuição de mercadoria
+                                  entre as filiais, diminuindo de maneira eficiente a perda/quebra de mercadorias. <br><br>
+																	• Otimizando várias rotinas administrativas com Power Query e/ou VBA, aumentando
+                                  a eficiência e velocidade nas disposições das informações. <br><br>
+																	• Elaboração de relatórios usando Banco de Dados (PostigreSQL). <br><br>
+																	• Também era principal responsável pela administração e gerenciamento do CRM da 
+                                  empresa. <br><br>
+                                  • Uso do ERP - RP Info. <br><br>
+                              	</p>
+                            </div>
+                        </div>
+                        <div class="evento">
+                            <div class="conteudo">
+                                <h3>Analista fiscal</h3>
+                                <p>12-2013 até 07-2018</p>
+                                <p>
+                                  • Lançamento e emissões de notas fiscais, gestão de entrada de mercadoria no 
+                                  depósito. <br><br>
+																	• Controle de inventário e otimização de processos. <br><br>
+																	• Controle e gestão de recebimento de mercadoria. <br><br>
+                                  • Uso do ERP - Sankhya <br><br>
+                              	</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                  <hr><br>
+                  <div class="linha-do-tempo">
+                        <h2>Estudos</h2><br>
+                        <div class="evento">
+                            <div class="conteudo">
+                                <h3>Título do Estudo 1</h3>
+                                <p>Data do Estudo 1</p>
+                                <p>Descrição do Estudo 1...</p>
+                            </div>
+                        </div>
+                        <div class="evento">
+                            <div class="conteudo">
+                                <h3>Título do Estudo 2</h3>
+                                <p>Data do Estudo 2</p>
+                                <p>Descrição do Estudo 2...</p>
+                            </div>
+                        </div>
+                        <div class="evento">
+                            <div class="conteudo">
+                                <h3>Título do Estudo 3</h3>
+                                <p>Data do Estudo 3</p>
+                                <p>Descrição do Estudo 3...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+              	<hr>
+                <div class="habilidades">
+                    <h2>Minhas Habilidades</h2><br>
+                    <div class="grafico-de-barras">
+                        <div class="habilidade">
+                            <span>Habilidade 1</span>
+                            <div class="barra">
+                                <span style="width: 90%;"></span>
+                            </div>
+                        </div>
+                        <div class="habilidade">
+                            <span>Habilidade 2</span>
+                            <div class="barra">
+                                <span style="width: 80%;"></span>
+                            </div>
+                        </div>
+                        <div class="habilidade">
+                            <span>Habilidade 3</span>
+                            <div class="barra">
+                                <span style="width: 70%;"></span>
+                            </div>
+                        </div>
+                        <div class="habilidade">
+                            <span>Habilidade 4</span>
+                            <div class="barra">
+                                <span style="width: 70%;"></span>
+                            </div>
+                        </div>
+                        <div class="habilidade">
+                            <span>Habilidade 5</span>
+                            <div class="barra">
+                                <span style="width: 70%;"></span>
+                            </div>
+                        </div>
+                        <div class="habilidade">
+                            <span>Habilidade 6</span>
+                            <div class="barra">
+                                <span style="width: 30%;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+          	<!-- PORTIFOLIO -->
+            <section id="portifolio">
+                <h1>Portfólio em Power BI!</h1>
+                <hr>
+                <div class="filtros">
+                  <nav>
+                      <ul>
+                          <li><a data-section="portifolio">Todos</a></li> •
+                          <li><a data-section="vendas">Vendas</a></li> •
+                          <li><a data-section="financeiro_dre">Financeiro/DRE</a></li> •
+                          <li><a data-section="logistica">Logistica</a></li> •
+                          <li><a data-section="outros">Outros</a></li>
+                      </ul>
+                  </nav>
+                </div>
+              	<!-- PROJETOS -->
+                <div class="projetos">
+                  
+                  	<!-- PROJETO 01: VENDA (DataExpert) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/Y3MFLvD/Page-01.png" alt="Relatório de Venda">
+                        <h3>Relatório de Venda</h3><br>
+                        <p>
+                          Relatório comercial com 5 páginas, extração e transformação feito conectando a um
+                          banco de dados SQL afim de apresentar uma análise comercial completa por mês, por
+                          vendedores, por produtos, além de análise de forecast e recomendações de compras.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto001" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 02: PBIDist -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/M9Mt06n/Page-02-1.png" alt="Análise Comercial">
+                        <h3>Relatório Comercial</h3><br>
+                        <p>
+                          Este projeto consiste na criação de um relatório comercial para automatizar a análise
+                          de desempenho dos vendedores da PBIDist (curso da xPeriun), utilizando Power BI e
+                          conectando em planilhas de Excel.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto002" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 03: Realizado vs Meta -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/LxcP2vt/01.png" alt="Realizado vs Meta">
+                        <h3>Realizado vs Meta</h3><br>
+                        <p>
+                          Desenvolvi um relatório comercial com foco em análise de desempenho de vendas comparando
+                          o realizado com metas estabelecidas. Utilizando Power BI, criamos visualizações intuitivas
+                          para monitorar e ajustar estratégias de vendas em tempo real.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto003" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 07: Controladoria (xPeriun) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/QCTfjQP/Print-02.png" alt="Relatória de Controladoria">
+                        <h3>Relatório de Controladoria</h3><br>
+                        <p>
+                          Um relatório de controladoria com um Demonstrativo de Resultado do Exercício (DRE), destacando 
+                          as métricas de Receita Bruta, Margem de Contribuição, Despesas Operacionais e Resultado Líquido.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto007" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 08: Logística (DataB/Laennder) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/FBmCgGV/Print-01.png" alt="Relatório de Logística">
+                        <h3>Relatório de Logística</h3><br>
+                        <p>
+                          Em breve!
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto008" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 05: Armazenagem (Gerson Viergutz) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/XDmzr3h/Print-04.png" alt="Relatório de Armazenagem e Estoque">
+                        <h3>Armazém e Estoque</h3><br>
+                        <p>
+                          Criação de um dashboard interativo em Power BI para gestão de inventário e armazém, análise
+                          de estoque e faturamento, utilizando dados de planilhas Excel, com medidas DAX e ETL no Power
+                          Query.
+												</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto005" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 04: Financeiro + DRE (xPeriun) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/njxsMPg/01-1.png" alt="Relatório Financeiro Com DRE">
+                        <h3>Financeiro Com DRE</h3><br>
+                        <p>
+                          Criação de um dashboard financeiro em Power BI que apresenta uma visão abrangente sobre
+                          os títulos pagos e recebidos, a pagar e a receber, juntamente com uma Demonstração de
+                          Resultados do Exercício (DRE) completa.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto004" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 06: Nome por Similaridade -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/LhcZYH9/Alt-Print-Screen.png" alt="Correção de Nomes por Similaridade">
+                        <h3>Correção de Nomes</h3><br>
+                        <p>
+                          Este projeto envolve na correção de nomes de cidades preenchidas incorretamente por 
+                          usuários em um sistema sem blindagem, utilizando um algoritmo de similaridade baseado 
+                          em n-gramas.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto006" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                </div>
+            </section>
+
+            <section id="vendas">
+                <h1>Portfólio em Power BI!</h1>
+                <hr>
+                <div class="filtros">
+                  <nav>
+                      <ul>
+                          <li><a data-section="portifolio">Todos</a></li> •
+                          <li><a data-section="vendas">Vendas</a></li> •
+                          <li><a data-section="financeiro_dre">Financeiro/DRE</a></li> •
+                          <li><a data-section="logistica">Logistica</a></li> •
+                          <li><a data-section="outros">Outros</a></li>
+                      </ul>
+                  </nav>
+                </div>
+   							<!-- PROJETOS -->
+                <div class="projetos">
+
+                  	<!-- PROJETO 01: VENDA (DataExpert) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/Y3MFLvD/Page-01.png" alt="Relatório de Venda">
+                        <h3>Relatório de Venda</h3><br>
+                        <p>Relatório comercial com 5 páginas, extração e transformação feito conectando a um
+                          banco de dados SQL afim de apresentar uma análise comercial completa por mês, por
+                          vendedores, por produtos, além de análise de forecast e recomendações de compras.</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto001" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 02: PBIDist -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/M9Mt06n/Page-02-1.png" alt="Análise Comercial">
+                        <h3>Relatório Comercial</h3><br>
+                        <p>Este projeto consiste na criação de um relatório comercial para automatizar a análise
+                          de desempenho dos vendedores da PBIDist (curso da xPeriun), utilizando Power BI e
+                          conectando em planilhas de Excel.</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto002" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 03: Realizado vs Meta -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/LxcP2vt/01.png" alt="Realizado vs Meta">
+                        <h3>Realizado vs Meta</h3><br>
+                        <p>Desenvolvi um relatório comercial com foco em análise de desempenho de vendas comparando
+                          o realizado com metas estabelecidas. Utilizando Power BI, criamos visualizações intuitivas
+                          para monitorar e ajustar estratégias de vendas em tempo real.</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto003" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>                  
+                  
+                </div>
+            </section>
+
+            <section id="logistica">
+                <h1>Portfólio em Power BI!</h1>
+                <hr>
+                <div class="filtros">
+                  <nav>
+                      <ul>
+                          <li><a data-section="portifolio">Todos</a></li> •
+                          <li><a data-section="vendas">Vendas</a></li> •
+                          <li><a data-section="financeiro_dre">Financeiro/DRE</a></li> •
+                          <li><a data-section="logistica">Logistica</a></li> •
+                          <li><a data-section="outros">Outros</a></li>
+                      </ul>
+                  </nav>
+                </div>
+   							<!-- PROJETOS -->
+                <div class="projetos">
+                  
+                  	<!-- PROJETO 08: Logística (DataB/Laennder) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/FBmCgGV/Print-01.png" alt="Relatório de Logística">
+                        <h3>Relatório de Logística</h3><br>
+                        <p>
+                          Em breve!
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto008" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 05: Armazenagem (Gerson Viergutz) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/XDmzr3h/Print-04.png" alt="Relatório de Armazenagem e Estoque">
+                        <h3>Armazém e Estoque</h3><br>
+                        <p>
+                          Criação de um dashboard interativo em Power BI para gestão de inventário e armazém, análise
+                          de estoque e faturamento, utilizando dados de planilhas Excel, com medidas DAX e ETL no Power
+                          Query.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto005" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                </div>
+            </section>
+
+            <section id="financeiro_dre">
+                <h1>Portfólio em Power BI!</h1>
+                <hr>
+                <div class="filtros">
+                  <nav>
+                      <ul>
+                          <li><a data-section="portifolio">Todos</a></li> •
+                          <li><a data-section="vendas">Vendas</a></li> •
+                          <li><a data-section="financeiro_dre">Financeiro/DRE</a></li> •
+                          <li><a data-section="logistica">Logistica</a></li> •
+                          <li><a data-section="outros">Outros</a></li>
+                      </ul>
+                  </nav>
+                </div>
+   							<!-- PROJETOS -->
+                <div class="projetos">
+                  
+                  	<!-- PROJETO 07: Controladoria (xPeriun) -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/QCTfjQP/Print-02.png" alt="Relatória de Controladoria">
+                        <h3>Relatório de Controladoria</h3><br>
+                        <p>
+                          Um relatório de controladoria com um Demonstrativo de Resultado do Exercício (DRE), destacando 
+                          as métricas de Receita Bruta, Margem de Contribuição, Despesas Operacionais e Resultado Líquido.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto007" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                  	<!-- PROJETO 04: Financeiro + DRE (xPeriun) -->
+                    <div class="projeto">
+												<img style="border:1px solid black;" src="https://i.ibb.co/njxsMPg/01-1.png" alt="Relatório Financeiro Com DRE">
+                        <h3>Financeiro Com DRE</h3><br>
+                        <p>
+                          Criação de um dashboard financeiro em Power BI que apresenta uma visão abrangente sobre
+                          os títulos pagos e recebidos, a pagar e a receber, juntamente com uma Demonstração de
+                          Resultados do Exercício (DRE) completa.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto004" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div> 
+                  
+                </div>
+            </section>
+
+            <section id="outros">
+                <h1>Portfólio em Power BI!</h1>
+                <hr>
+                <div class="filtros">
+                  <nav>
+                      <ul>
+                          <li><a data-section="portifolio">Todos</a></li> •
+                          <li><a data-section="vendas">Vendas</a></li> •
+                          <li><a data-section="financeiro_dre">Financeiro/DRE</a></li> •
+                          <li><a data-section="logistica">Logistica</a></li> •
+                          <li><a data-section="outros">Outros</a></li>
+                      </ul>
+                  </nav>
+                </div>
+   							<!-- PROJETOS -->
+                <div class="projetos">
+                  
+										<!-- PROJETO 06: Nome por Similaridade -->
+                    <div class="projeto">
+                        <img style="border:1px solid black;" src="https://i.ibb.co/LhcZYH9/Alt-Print-Screen.png" alt="Correção de Nomes por Similaridade">
+                        <h3>Correção de Nomes</h3><br>
+                        <p>
+                          Este projeto envolve na correção de nomes de cidades preenchidas incorretamente por 
+                          usuários em um sistema sem blindagem, utilizando um algoritmo de similaridade baseado 
+                          em n-gramas.
+                      	</p>
+                        <br><br>
+                      	<nav><ul><li>
+                        	<div class="bttn-container">
+                          	<a data-section="projeto006" class="bttn">Ver Projeto</a>
+                        	</div>
+                        </li></ul></nav>
+                    </div>
+                  
+                </div>
+            </section>
+
+						<!-- PROJETO 01: VENDA (DataExpert) -->
+            <section id="projeto001">
+                <h1>Relatório de Venda</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiZjRiNmU4YjgtZDE4Mi00NzZjLTkzOWUtZjczMzgyM2JjZjFiIiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+									Desenvolvi um relatório comercial com 5 páginas, conectando a um banco de dados SQL para extrair
+                  e transformar dados (realização do ETL) e apresentar a análise detalhada de faturamento por mês,
+                  desempenho de vendedores, por produto, análise de forecast e recomendação de compras por cliente.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									O objetivo foi criar uma feramenta visual para monitorar o desempenho da empresa mensal, por vendedor
+                  e por produto, além de fornecer recomendações estratégicas para melhorar a competitividade no mercado.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									Os insights principais incluíram identificação de meses e produtos que estão abaixo da meta, desempenho
+                  dos vendedores, e recomendação de produtos com base em análise de clientes similares.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									O relatório proporcionou uma visão clara e detalhada dos indicadores chaves, ajudando na tomada de
+                  decisões estratégicas e melhorias operacionais.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									Conectar a um banco de dados SQL para realizar o ETL, desenvolvimento de gráficos e narrativas visuais
+                  para destacar informações críticas. Utilização do Power BI para criar um ambiente interativo e dinâmico.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Os principais desafios foram garantir a precisão dos dados e criar visualizações intuitivas. Aprendi a
+                  importância da narrativas visuais claras e a necessidade de recomendações acionáveis baseada em dados.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/Y3MFLvD/Page-01.png" height="100%" width="100%" alt="Análise de Vendas">
+
+            </section>
+
+						<!-- PROJETO 02: PBIDist -->
+            <section id="projeto002">
+                <h1>Análise Comercial</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiNjQ0NGNlYjAtY2RmOS00YmU3LTllZDUtN2RkMWQ2M2FhZjNmIiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+									Este projeto consiste na criação de um relatório comercial para automatizar a análise de desempenho
+                  dos vendedores da PBIDist (curso da xPeriun), utilizando Power BI e planilhas de Excel.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									O objetivo é economizar tempo e aumentar a produtividade da equipe de vendas, identificando tendências
+                  de mercado, destacando os melhores vendedores e analistando a evolução do faturamento, margem, principais
+                  produtos e fatores que influenciam a margem.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									O relatório permite uma visão detalhada dos KPIs principais, como faturamento, margem bruta e notas emitidas,
+                  além de destacar os melhores vendedores, produtos mais vendidos e realizar análise de pareto e cross-sell.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									Com o relatório, a equipe de vendas pode tomar decisões mais informadas, monitorar metas de forma eficaz e
+                  identificar rapidamente os vendedores e produtos que mais contribuem para o crescimento do negócio.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									Utilizamos Power Query no Power BI para realizar ETL das planilhas de Excel, criando um relatório com várias
+                  páginas que cobrem desde a visão geral até análises específicas como Realizado vs Meta, ranking de vendedores
+                  e decomposição hierárquica dos KPIs.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Foi consolidar dados de várias fontes e garantir a precisão das análises. Aprendemos que a automação através de
+                  ferramentas de BI é crucial para melhorar a eficiência e a tomada de decisões baseadas em dados.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/M9Mt06n/Page-02-1.png" height="100%" width="100%" alt="Análise Comercial">
+
+            </section>
+
+						<!-- PROJETO 03: Realizado vs Meta -->
+            <section id="projeto003">
+                <h1>Análise de Realizado vs Meta</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiNzhkY2FlZmUtMTgxYS00Mzg3LTg3YzctNzBiOTdmMTM0NjVlIiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+									Desenvolvi um relatório comercial focado na análise de desempenho de vendas, comparando o faturamento realizado
+                  com as metas estabelecidas. Utilizando Power BI, criamos uma visualização intuitiva para monitorar e ajustar
+                  estratégias de vendas em tempo real.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									O objetivo principal era oferecer uma ferramenta visual que ajudasse a equipe comercial a acompanhar seu progresso
+                  em relação às metas de vendas mensais e diárias. Esse monitoramento constante visa facilitar ajustes estratégicos para
+                  melhorar o desempenho e atingir as metas estipuladas.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									O relatório revela uma variação significativa entre o faturamento real e as metas, tanto em nível geral quanto individual.
+                  Esses insights permitiram identificar quais dias apresentaram maior discrepância, destacando oportunidades para ações.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									A implementação do relatório resultou em uma visão mais clara e detalhada do desempenho de vendas, permitindo à equipe
+                  comercial fazer ajustes táticos rapidamente. Isso melhora a eficiência operacional e alinha as ações diárias às metas 
+                  mensais, potencializando os reusltados.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									Utilizamos Power BI para integrar dados de vendas e de metas, e criar visualizações dinâmicas e interativas. A abordagem
+                  se concentrou em facilitar a interpretação dos dados, proporcionando uma interface intuitiva que destaca o desempenho
+                  em relação às metas.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Um dos principais desafios foi garantir a precisão dos dados e a atualização em tempo real. Aprendemos que a comunicação
+                  constante com a equipe de vendas é crucial para validar os dados e ajustar os dashboards conforme o necessário, garantindo
+                  que eles permaneçam relevantes e úteis.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/LxcP2vt/01.png" height="100%" width="100%" alt="Realizado vs Meta">
+              
+            </section>
+
+						<!-- PROJETO 04: Financeiro + DRE (xPeriun) -->
+            <section id="projeto004">
+                <h1>Relatório Financeiro Com DRE</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiODk1NjdjNDItYWU4YS00MzY2LWI3MTAtODNlMzE1YzQyNTA2IiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+									Este projeto envolve a criação de um relatório financeiro em Power BI que apresenta uma visão abrangente sobre os títulos pagos
+                  e recebidos, a pagar e a receber, juntamente com uma Demonstração de Resultados do Exercício (DRE) completa, incluindo análise
+                  vertical e horizontal.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									O relatório foi desenvolvido para fornecer uma visão clara e detalhada da situação financeira de uma empresa ao longo do ano de
+                  2020, facilitando o monitoramento e a análise de dados financeiros cruciais, como pagamentos, recebimentos, e indicadores de
+                  desempenho, com o objetivo de suportar a tomada de decsiões estratégicas.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									Através do relatório, foi possível identificar os períodos com maior volume de pagamentos e recebimentos, detectar atrasos 
+                  significativos em títulos, e analisar a performance financeira por diferentes unidades federativas e naturezas financeiras,
+                  destacando áreas que necessitam de atenção para melhorar a saúde financeira da empresa.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									O uso do dashboard resultou em uma maior visibilidade e controle sobre os fluxos financeiros, permitindo à empresa reduzir atrasos
+                  em pagamentos e recebimentos, otimizar a gestão de caixa e tomar decisões mais informadas, contribuindo para uma melhoria significativa
+                  na eficiência operacional na rentabilidade.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									O projeto utilizou Power BI para consolidar e visualizar os dados financeiros extraídos de diversas fontes. Foram aplicadas técnicas
+                  de análise de dados para desenvolver visualizações interativas e dinâmicas que permitem explorar informações detalhadas sobre pagamentos,
+                  recebimentos e desempenho financeiro, além de incluir análises vertical e horizontal na DRE.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Entre os principais desafios, destacaram-se a integração de dados de múltiplas fontes e a criação de visualizações que fossem intuitívas
+                  e úteis para os gestoers. O processo trouxe aprendizados valiosos sobre a importância de uma estrutura de dados bem organizada e a 
+                  necessidade de manter um design de dashboard focado na usabilidade e clareza das informações apresentadas.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/njxsMPg/01-1.png" height="100%" width="100%" alt="Relatório Financeiro Com DRE">
+
+            </section>
+
+						<!-- PROJETO 05: Armazenagem (Gerson Viergutz) -->
+            <section id="projeto005">
+                <h1>Análise de Armazém e Estoque</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiODM5NjU1MjEtOGVhNS00NWFkLTllZGYtODZhZmUzNDhiZDkyIiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+                  Criação de um dashboard interativo em Power BI para gestão de inventário e armazém, análise
+                  de estoque e faturamento, utilizando dados de planilhas Excel, com medidas DAX e ETL no Power
+                  Query.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+                  O projeto foi desenvolvido para uma empresa que necessitava melhorar a visibilidade e controle
+                  de seus estoques e armazéns, otimizar o reabastecimento, identificar rapidamente itens abaixo
+                  do estoque mínimo e analisar o faturamento de forma detalhada para embasar decisões estratégicas.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									O relatório revelou itens frequentemente abaixo do estoque mínimo, identificou produtos com
+                  maior faturamento, e proporcionou uma visão clara do valor total de estoque e cobertura de
+                  estoque, permitindo a empresa ajustar suas estratégias de compra e venda com maior precisão.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									A implementação do relatório resultou em uma gestão de inventário mais eficiente, redução de
+                  perdas por falta de produtos, melhor planejamento de reabastecimentos, e insights estratégicos
+                  que aumentaram a eficácia nas decisões de compras e vendas, melhorando o desempenho operacional.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									Utilizamos Power Query para ETL, transformando dados de planilhas Excel, e criamos medidas DAX
+                  para análise avançada. As visualizações foram desenhadas para facilitar a interpretação rápida de
+                  KPIs críticos, como quantidade de estoque, itens abaixo do mínimo, valor de estoque e cobertura.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Os principais desafios foram integrar dados de múltiplas bases e criar medidas DAX complexas para
+                  análises específicas. Aprendemos técnicas avançadas de Power Query e DAX, aprimorando nossas
+                  habilidades em manipulação e o principal uma visualização de dados exemplar.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/XDmzr3h/Print-04.png" height="100%" width="100%" alt="Relatório de Armazenagem e Estoque">
+
+            </section>
+
+						<!-- PROJETO 06: Nome por Similaridade -->
+            <section id="projeto006">
+                <h1>Correção de Nomes por Similaridade</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiM2I2YjM5ZDctNjI5Mi00MjljLTlkZWYtNjM1YTI0MDIxMTE5IiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+									Este projeto envolve na correção de nomes de cidades preenchidas incorretamente por usuários em um sistema
+                  sem blindagem, utilizando algoritmo de similaridade baseado em n-gramas.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									O objetivo é garantir a consistência e correção dos nomes das cidades em uma base de dados, corrigindo erros
+                  de digitação e variações de nomes através de uma comparação com uma lista de cidades corretas.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									Utilizando o algoritmo de n-gramas, foi possível identificar e corrigir com alta precisão os nomes de cidades
+                  erradas ou digitados incorretamente, garantindo a integridade dos dados.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									O projeto resultou em uma base de dados de cidades limpa e padronizada, melhorando a qualidade dos dados para
+                  análise e relatórios, e facilitando a integração com outros sistemas.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									A abordagem envolveu a criação de um algoritmo que gera n-gramas para comparar e calcular a similaridade entre
+                  os nomes das cidades fornecidas pelos usuários e uma lista de cidades corretas.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Um dos principais desafios foi lidar com a variedade de erros de digitação e variações de nomes. Aprendemos que
+                  utilização de n-gramas é eficaz para identificar e corrigir essas inconsistências, melhorando a qualidade dos 
+                  dados.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/LhcZYH9/Alt-Print-Screen.png" height="100%" width="100%" alt="Correção de Nomes por Similaridade">
+
+            </section>
+
+						<!-- PROJETO 07: Controladoria (xPeriun) -->
+            <section id="projeto007">
+                <h1>Relatório de Controladoria com DRE</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiZDhiNDllNzktYzQ2YS00YTNkLWI3ODItZTc0ZTUxMTFiODI1IiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+                  Um relatório de controladoria com um Demonstrativo de Resultado do Exercício (DRE), destacando as métricas de
+                  Receita Bruta, Margem de Contribuição, Despesas Operacionais e Resultado Líquido.
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									O projeto visa proporcionar uma visão detalhada do desempenho financeiro, permitindo a comparação entre valores
+                  realizados e orçados, e identificando áreas que necessitam de atenção para otimização financeira.
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									O relatório permite identificar variações entre os valores realizados e orçados, destacando padrões sazonais de
+                  desempenho, áreas de custo excessivo e oportunidades para melhorar a eficiência operacional, independentemente da
+                  empresa, filial ou período analisado.
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									O relatório proporcionou uma análise financeira clara e detalhada, facilitando a tomada de decisões estratégicas e
+                  identificação de áreas de melhoria, contribuindo para uma gestão financeira mais eficiente.
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									Utilizou-se uma base de dados em Excel com dimensões e fatos específicas para construir o DRE no Power BI, aplicando
+                  DAX para narrativas e storytelling, com o layout desenvolvido em PowerPoint para uma apresentação visualmente atraente.
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									O principal desafio foi a necessidade de conhecimento contábil avançado para desenvolver uma DRE completa e detalhada,
+                  além da aplicação de técnicas de visualização de dados para criar um relatório intuitivo e informativo.
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/QCTfjQP/Print-02.png" height="100%" width="100%" alt="Relatória de Controladoria com DRE">
+
+            </section>
+
+						<!-- PROJETO 08: Logística (DataB/Laennder) -->
+            <section id="projeto008">
+                <h1>Correção de Nomes por Similaridade</h1>
+                <hr>
+								
+              	<iframe width="100%" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiMjU1YWUzMmItZTZiMC00YWI1LWFjMjItZGM0OWU1YWE3NGQwIiwidCI6ImRhYmE5NDFiLWQxYjYtNDA5ZC1hNWM1LTA2ZDRiYTAyNjc2NiJ9" frameborder="0" allowFullScreen="true">
+              	</iframe>
+              	
+              	<h3>Descrição do projeto:</h3><br>
+              	<p>
+									Em breve...
+              	</p><br>
+								<h3>Contexto e objetivos:</h3><br>
+              	<p>
+									Em breve...
+              	</p><br>
+								<h3>Principais insights e descobertas:</h3><br>
+              	<p>
+									Em breve...
+              	</p><br>
+								<h3>Resultados e impacto:</h3><br>
+              	<p>
+									Em breve...
+              	</p><br>
+								<h3>Metodologia e abordagem:</h3><br>
+              	<p>
+									Em breve...
+              	</p><br>
+								<h3>Desafio e aprendizados:</h3><br>
+              	<p>
+									Em breve...
+              	</p><br>
+								<h3>Imagem:</h3><br>
+              	<img style="border:1px solid black;" src="https://i.ibb.co/FBmCgGV/Print-01.png" height="100%" width="100%" alt="Correção de Nomes por Similaridade">
+
+            </section>
+          
+						<!-- PROJETOS SQL E PYTHONS -->
+            <section id="Outros">
+                <h1>Em Breve</h1>
+                <hr>
+								<img src="https://buri.org.br/imagens/manu.png" height="50%" width="50%" alt="Página em Manutenção">
+              	<br>
+              	<p>
+									Página atualmente em desenvolvimento, aguarde!
+              	</p><br>
+            </section>
+        </div>
+    </div>
+
+<!-- Static App Form Collection Script -->
+<script src="https://static.app/js/static-forms.js" type="text/javascript"></script>
+
+<script src="https://static.app/js/static.js" type="text/javascript"></script>
+</body>
+</html>
