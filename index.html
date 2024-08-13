@@ -1,412 +1,415 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Portfólio de BI - Thiago José</title>
 
-    <title>Portfólio de BI - Thiago José</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: Arial, sans-serif;
+	}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+	body { 
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: justify;
+		min-height: 100vh;
+		background: linear-gradient(to bottom, #F0F0F0, #F0F0F0);
+	}
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;text-align: justify;
-            min-height: 100vh;
-            background: linear-gradient(to bottom, #F0F0F0, #F0F0F0);
-        }
-
-        .button {
-            border: none;
-            color: white;
-            padding: 8px 16px;
-            text-align: margin-bottom;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .button1 {
-            background-color: #04AA6D; /* Cor verde padrão */
-        }
-
-        .button2 {
-            background-color: #008CBA; /* Cor azul padrão */
-        }
+	.button {
+		border: none;
+		color: white;
+		padding: 8px 16px;
+		text-align: margin-bottom;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	
+	.button1 {
+		background-color: #04AA6D; /* Cor verde padrão */
+	}
+	
+	.button2 {
+		background-color: #008CBA; /* Cor azul padrão */
+	}
 
         /* Alterar a cor de fundo quando o cursor estiver em cima */
-        .button1:hover {
-	    			/* Nova cor verde quando hover */
-            background-color: #062b83;
-        }
+	.button1:hover {
+		/* Nova cor verde quando hover */
+		background-color: #062b83;
+	}
+	
+	.button2:hover {
+		/* Nova cor azul quando hover */
+		background-color: #005A7F; 
+	}
+	
+	.container {
+		display: flex;
+		width: 80%;
+		max-width: 1200px;
+		background-color: #ffffff;
+		border-radius: 10px;
+		overflow: hidden;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	}
+	
+	.sidebar {
+		width: 25%;
+		background: linear-gradient(to bottom, #062b83, #31e2b3);
+		color: #ffffff;
+		text-align: center;
+		padding: 20px;
+		border-radius: 10px 10px 10px 10px;
+	}
+		
+	.sidebar img {
+		width: 180px;
+		height: 180px;
+		border-radius: 0px;
+		margin-bottom: 5px;
+	}
+		
+	.sidebar h2, .sidebar h3 {
+		margin: 15px 0;
+	}
+		
+	.sidebar hr {
+		margin: 20px 0;
+		border: 0;
+		height: 1px;
+		background: #ffffff;
+	}
+		
+	.sidebar p, .sidebar a {
+		margin: 5px 0;
+		display: flex;
+		align-items: center;
+	}
+		
+	.sidebar a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+		
+	.sidebar p img, .sidebar a img {
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+	}
+		
+	.main {
+		width: 75%;
+		padding: 20px;
+	}
 
-        .button2:hover {
-            /* Nova cor azul quando hover */
-            background-color: #005A7F; 
-        }
+	nav ul {
+		display: flex;
+		justify-content: flex-end;
+		list-style-type: none;
+		margin-bottom: 20px;
+	}
+		
+	nav ul li { 
+		margin: 0 10px;
+	}
+		
+	nav ul li a {
+		text-decoration: none;
+		color: #343a40;
+		font-weight: bold;
+		cursor: pointer;
+		padding: 5px 10px;
+		border-radius: 5px;
+	}
+	
+	nav ul li a.active {
+		color: #ffffff;
+		background-color: #062b83; /* Cor de destaque para a página ativa */
+	}
+		
+	nav ul li a:hover {
+		background-color: #0056b3; /* Cor de destaque ao passar o mouse */
+		color: #ffffff;
+	}
+		
+	section {
+		display: none;
+		margin-bottom: 40px;
+	}
+	
+	section.active {
+		display: block;
+	}
+	
+	section h1 {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+		
+	section hr {
+		margin-bottom: 20px;
+		border: 0;
+		height: 1px;
+		background: #343a40;
+	}
+	
+	.competencias {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+	
+	.competencia {
+		display: flex;
+		align-items: center;
+		background-color: #f0f0f0;
+		padding: 10px;
+		border-radius: 5px;
+		width: calc(50% - 20px);
+	}
+	
+	.competencia img {
+		width: 40px;
+		height: 40px;
+		border-radius: 10px;
+		margin-right: 10px;
+	}
+	
+	.timeline .linha-do-tempo {
+		margin-bottom: 20px;
+		position: relative;
+		padding-left: 20px;
+	}
 
-        .container {
-            display: flex;
-            width: 80%;
-            max-width: 1200px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar {
-            width: 25%;
-            background: linear-gradient(to bottom, #062b83, #31e2b3);
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px 10px 10px 10px;
-        }
-
-        .sidebar img {
-            width: 180px;
-            height: 180px;
-            border-radius: 0px;
-            margin-bottom: 5px;
-        }
-
-        .sidebar h2, .sidebar h3 {
-            margin: 15px 0;
-        }
-
-        .sidebar hr {
-            margin: 20px 0;
-            border: 0;
-            height: 1px;
-            background: #ffffff;
-        }
-
-        .sidebar p, .sidebar a {
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .sidebar a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .sidebar p img, .sidebar a img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-
-        .main {
-            width: 75%;
-            padding: 20px;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: flex-end;
-            list-style-type: none;
-            margin-bottom: 20px;
-        }
-
-        nav ul li {
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #343a40;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        nav ul li a.active {
-            color: #ffffff;
-            background-color: #062b83; /* Cor de destaque para a página ativa */
-        }
-
-        nav ul li a:hover {
-            background-color: #0056b3; /* Cor de destaque ao passar o mouse */
-            color: #ffffff;
-        }
-
-        section {
-            display: none;
-            margin-bottom: 40px;
-        }
-
-        section.active {
-            display: block;
-        }
-
-        section h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        section hr {
-            margin-bottom: 20px;
-            border: 0;
-            height: 1px;
-            background: #343a40;
-        }
-
-        .competencias {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .competencia {
-            display: flex;
-            align-items: center;
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            width: calc(50% - 20px);
-        }
-
-        .competencia img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            margin-right: 10px;
-        }
-
-        .timeline .linha-do-tempo {
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .timeline .evento {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .timeline .evento .bolinha {
-            width: 15px;
-            height: 15px;
-            background-color: #343a40;
-            border-radius: 50%;
-            margin-right: 10px;
-            position: relative;
-        }
-
-        .timeline .evento .bolinha::after {
-            content: '';
-            width: 2px;
-            height: 100%;
-            background-color: #343a40;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .timeline .evento:last-child .bolinha::after {
-            height: 50%;
-        }
-
-        .timeline .evento .conteudo h3 {
-            margin-bottom: 5px;
-        }
-
-        .habilidades {
-            margin-top: 40px;
-        }
-
-        .habilidades hr {
-            margin-top: 40px;
-        }
-
-        .habilidades .grafico-de-barras {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .habilidade {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        .habilidade span {
-            width: 100px;
-            margin-right: 10px;
-        }
-
-        .barra {
-            width: 300px;
-            height: 20px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .barra span {
-            display: block;
-            height: 100%;
-            background-color: #343a40;
-        }
-
-        .filtros a {
-            margin-right: 10px;
-            text-decoration: none;
-            color: #343a40;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .projetos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .shadow-text {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: transparent;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .projeto {
-            width: calc(33.333% - 20px);
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .projeto img {
-            width: 100%;
-            border-radius: 5px;
-        }
-
-        .bttn-container {
-            position: absolute;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            width: 80%;
-        }
-        .bttn {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #062b83;
-            color: #fff;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .bttn:hover {
-            background-color: #0056b3;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        form label {
-            margin: 10px 0 5px;
-        }
-
-        form input, form textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        form button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #343a40;
-            color: #ffffff;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #495057;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar, .main {
-                width: 100%;
-            }
-
-            .competencia, .projeto {
-                width: 100%;
-            }
+	.timeline .evento {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	
+	.timeline .evento .bolinha {
+		width: 15px;
+		height: 15px;
+		background-color: #343a40;
+		border-radius: 50%;
+		margin-right: 10px;
+		position: relative;
+	}
+		
+	.timeline .evento .bolinha::after {
+		content: '';
+		width: 2px;
+		height: 100%;
+		background-color: #343a40;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+		
+	.timeline .evento:last-child .bolinha::after {
+		height: 50%;
+	}
+	
+	.timeline .evento .conteudo h3 {
+		margin-bottom: 5px;
+	}
+	
+	.habilidades {
+		margin-top: 40px;
+	}
+	
+	.habilidades hr {
+		margin-top: 40px;
+	}
+	
+	.habilidades .grafico-de-barras {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.habilidade {
+		display: flex;
+		align-items: center;
+		margin: 10px 0;
+	}
+	
+	.habilidade span {
+		width: 100px;
+		margin-right: 10px;
+	}
+		
+	.barra {
+		width: 300px;
+		height: 20px;
+		background-color: #e0e0e0;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	
+	.barra span {
+		display: block;
+		height: 100%;
+		background-color: #343a40;
+	}
+	
+	.filtros a {
+		margin-right: 10px;
+		text-decoration: none;
+		color: #343a40;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	
+	.projetos {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+	
+	.shadow-text {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: transparent;
+		border-radius: 5px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		font-weight: bold;
+		color: #ffffff;
+	}
+	
+	.projeto {
+		width: calc(33.333% - 20px);
+		background-color: #f0f0f0;
+		padding: 10px;
+		border-radius: 5px;
+		text-align: center;
+		box-sizing: border-box;
+		position: relative;
+	}
+	
+	.projeto img {
+		width: 100%;
+		border-radius: 5px;
+	}
+	
+	.bttn-container {
+		position: absolute;
+		bottom: 12px;
+		left: 50%;
+		transform: translateX(-50%);
+		text-align: center;
+		width: 80%;
+	}
+	
+	.bttn {
+		display: inline-block;
+		padding: 8px 16px;
+		background-color: #062b83;
+		color: #fff;
+		text-decoration: none;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+		
+	.bttn:hover {
+		background-color: #0056b3;
+	}
+	
+	form {
+		display: flex;
+		flex-direction: column;
+	}
+		
+	form label {
+		margin: 10px 0 5px;
+	}
+	
+	form input, form textarea {
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		margin-bottom: 20px;
+	}
+	
+	form button {
+		padding: 10px;
+		border: none;
+		border-radius: 5px;
+		background-color: #343a40;
+		color: #ffffff;
+		cursor: pointer;
+	}
+	
+	form button:hover {
+		background-color: #495057;
+	}
+	
+	@media (max-width: 768px) {
+		.container {
+			flex-direction: column;
+		}
+		
+		.sidebar, .main {
+			width: 100%;
+		}
+		
+		.competencia, .projeto {
+			width: 100%;
+		}
+	}
+	</style>
+	
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const links = document.querySelectorAll('nav ul li a');
+			const sections = document.querySelectorAll('section');
+			
+			function showSection(sectionId) {
+				sections.forEach(section => {
+					section.classList.remove('active');
 				}
+				);
 
-    </style>
+				links.forEach(link => {
+					link.classList.remove('active');
+						if (link.getAttribute('data-section') === sectionId) {
+							link.classList.add('active');
+						}
+				}
+				);
+				
+			const activeSection = document.getElementById(sectionId);
+				if (activeSection) {
+					activeSection.classList.add('active');
+				}
+			}
+			
+			links.forEach(link => {
+				link.addEventListener('click', (e) => {
+					e.preventDefault();
+					const sectionId = link.getAttribute('data-section');
+					showSection(sectionId);
+				});
+			});
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const links = document.querySelectorAll('nav ul li a');
-            const sections = document.querySelectorAll('section');
-
-            function showSection(sectionId) {
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                links.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('data-section') === sectionId) {
-                        link.classList.add('active');
-                    }
-                });
-
-                const activeSection = document.getElementById(sectionId);
-                if (activeSection) {
-                    activeSection.classList.add('active');
-                }
-            }
-
-            links.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const sectionId = link.getAttribute('data-section');
-                    showSection(sectionId);
-                });
-            });
-
-            // Mostrar a seção "sobre" por padrão
-            showSection('portifolio');
-        });
-    </script>
+			// Mostrar a seção "sobre" por padrão
+            		showSection('portifolio');
+        	});
+	</script>
 </head>
 
 <!-- CORPO DO PROJETO -->
