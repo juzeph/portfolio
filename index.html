@@ -1761,41 +1761,149 @@
 				<h1>Código SQL</h1>
 				<p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p>
 				<pre>
-					SELECT 
-						v.nfe, 
-						v.data, 
-						v.cliente_id, 
-					cv.vendedor_id, 
-					iv.produto_id, 
-					iv.item_quantidade AS quantidade, 
-					iv.valor_unitario AS valor, 
-					ROUND((iv.valor_bruto * (v.nf_desconto / v.valor_bruto)), 4) AS valor_desconto
-					FROM 
-					Vendas v
-					JOIN 
-					ItensVendas iv ON v.id = iv.vendas_id
-					JOIN 
-					ClientesVendedores cv ON v.cliente_id = cv.cliente_id
-					WHERE 
-					v.id = 1;
+SELECT 
+	v.nfe, 
+	v.data, 
+	v.cliente_id, 
+	cv.vendedor_id, 
+	iv.produto_id, 
+	iv.item_quantidade AS quantidade, 
+	iv.valor_unitario AS valor, 
+	ROUND((iv.valor_bruto * (v.nf_desconto / v.valor_bruto)), 4) AS valor_desconto
+FROM 
+	Vendas v
+LEFT JOIN 
+	ItensVendas iv ON v.id = iv.vendas_id
+LEFT JOIN 
+	ClientesVendedores cv ON v.cliente_id = cv.cliente_id
+WHERE 
+	v.id = 1;
 				</pre>
-        <h2>Código Power Query (M)</h2>
-        <p>O código abaixo demonstra como obter o mesmo resultado no Power Query:</p>
-        <pre>
+				<h1>Código Power Query (M)</h1>
+        			<p>Abaixo os mesmos códigos em Power Query, porém utilizando Excel como Base de Dados:</p>
+				<pre>
 let
-    Fonte_Vendas = Vendas,
-    VendasFiltradas = Table.SelectRows(Fonte_Vendas, each [id] = 1),
-    ItensFiltrados = Table.SelectRows(ItensVendas, each [vendas_id] = 1),
-    ClientesVendedores = ClientesVendedores,
-    Juncoes = Table.Join(VendasFiltradas, "cliente_id", ClientesVendedores, "cliente_id", JoinKind.Inner),
-    ItensComJuncoes = Table.Join(Juncoes, "id", ItensFiltrados, "vendas_id", JoinKind.Inner),
-    Calculos = Table.AddColumn(ItensComJuncoes, "valor_desconto", each Number.Round([valor_bruto] * ([nf_desconto] / [valor_bruto]), 4))
-in
-    Calculos
-        </pre>
-				
-			</section>
+    Fonte = BaseDadosOLTP,
 
+    TabelaVendas = 
+        Table.TransformColumnTypes(
+            Table.PromoteHeaders(
+                Table.Combine(
+                    Table.SelectRows(
+                        Fonte, 
+                        each ([Name] = "Vendas")
+                    )[Data]
+                ),
+                [PromoteAllScalars=true]
+            ),
+            {
+                { "id", Int64.Type },
+                { "data", type date },
+                { "nfe", type text },
+                { "cliente_id", Int64.Type },
+                { "nf_desconto", type number },
+                { "valor_bruto", type number },
+                { "valor_venda", type number }
+            }
+        ),
+
+    TabelaItensVendas = 
+        Table.TransformColumnTypes(
+            Table.PromoteHeaders(
+                Table.Combine(
+                    Table.SelectRows(
+                        Fonte,
+                        each ([Name] = "ItensVendas")
+                    )[Data]
+                ),
+                [PromoteAllScalars=true]
+            ),
+            {
+                { "id", Int64.Type },
+                { "vendas_id", Int64.Type },
+                { "produto_id", Int64.Type },
+                { "item_quantidade", Int64.Type },
+                { "valor_unitario", type number },
+                { "valor_bruto", type number }
+            }
+        ),
+
+    TabelaClientesVendedores = 
+        Table.TransformColumnTypes(
+            Table.PromoteHeaders(
+                Table.Combine(
+                    Table.SelectRows(
+                        BaseDadosOLTP,
+                        each ([Name] = "ClientesVendedores")
+                    )[Data]
+                ), 
+                [PromoteAllScalars=true]
+            ),
+            {
+                { "cliente_id", Int64.Type },
+                { "vendedor_id", Int64.Type }
+            } 
+        ),
+
+    ________ = "",
+
+    MesclarTabelaClientVend = 
+        Table.NestedJoin(
+            // Tabela 1
+            TabelaVendas, { "cliente_id" },
+            // Tabela 2
+            TabelaClientesVendedores, { "cliente_id" },
+            "ClientesVendedores",
+            JoinKind.LeftOuter
+        ),
+
+    ExpandirTabelaClientVend = 
+        Table.ExpandTableColumn(
+            MesclarTabelaClientVend,
+            "ClientesVendedores",
+            { "vendedor_id" },
+            { "vendedor_id" }
+        ),
+
+    MesclarTabelaItensVendas = 
+        Table.NestedJoin(
+            // Tabela 1
+            ExpandirTabelaClientVend, { "id" },
+            // Tabela 2
+            TabelaItensVendas, { "vendas_id" },
+            "Vendas",
+            JoinKind.LeftOuter
+        ),
+
+    ExpandiTabelaItensVendas = 
+        Table.ExpandTableColumn(
+            MesclarTabelaItensVendas,
+            "Vendas",
+            { "id", "produto_id", "item_quantidade", "valor_unitario", "valor_bruto" },
+            { "Vendas.id", "produto_id", "item_quantidade", "valor_unitario", "Vendas.valor_bruto" }
+        ),
+    
+    AddColunaDesconto = 
+        Table.AddColumn(
+            ExpandiTabelaItensVendas,
+            "valor_desconto",
+            each [Vendas.valor_bruto] / [valor_bruto] * [nf_desconto],
+            type number
+        ),
+
+    EscolherColunas = 
+        Table.SelectColumns(
+            AddColunaDesconto,
+            { 
+                "nfe", "data", "produto_id", "vendedor_id", "cliente_id", 
+                "item_quantidade", "valor_unitario", "valor_desconto" 
+            }
+        )
+
+in
+    EscolherColunas
+				<pre>
+			</section>
 		</div>
 	</div>
 </body>
