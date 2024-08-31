@@ -1626,121 +1626,138 @@
 				</ul>
 				<h1>Exemplo Prático</h1>
 				<p>
-					A seguir, veja um exemplo prático que é muito comum no mundo real. Ao filtrar a venda
-					com <code>id = 1</code> nas tabelas de <code>Vendas</code> e <code>ItensVendas</code>,
-					o resultado final é o seguinte:
-				</p><br><br>
+					Vamos ver um exemplo em que temos 3 tabelas, uma de <code>vendas</code> (tabela Header)
+					e uma outra de <code>ItensVendas</code> (tabela Detail), e também uma tabela posterior
+					de <code>ClientesVendedores</code> que é uma tabela que determina a que vendedor o cliente
+					pertence. Para facilitar o entendimento, usaremos um filtro trazendo apenas dados da venda
+					com o <code>id = 1</code>:
+				</p><br>
 				<h3>Tabela Vendas</h3>
 				<table>
+					<!-- Cabeçalho da Tabela -->
 					<thead>
 						<tr>
 							<th>id</th>
 							<th>data</th>
 							<th>nfe</th>
 							<th>nf_desconto</th>
-                    <th>valor_bruto</th>
-                    <th>valor_venda</th>
-                    <th>cliente_id</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2021-02-16</td>
-                    <td>SO43660</td>
-                    <td>24.90</td>
-                    <td>265.00</td>
-                    <td>240.10</td>
-                    <td>614</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Tabela ItensVendas</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>vendas_id</th>
-                    <th>produto_id</th>
-                    <th>item_quantidade</th>
-                    <th>valor_unitario</th>
-                    <th>valor_bruto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>13</td>
-                    <td>1</td>
-                    <td>43</td>
-                    <td>1</td>
-                    <td>112.00</td>
-                    <td>112.00</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>1</td>
-                    <td>49</td>
-                    <td>1</td>
-                    <td>153.00</td>
-                    <td>153.00</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Tabela ClientesVendedores</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>cliente_id</th>
-                    <th>vendedor_id</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>614</td>
-                    <td>4</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Resultado Final (Após Junção e Cálculos)</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>nfe</th>
-                    <th>data</th>
-                    <th>cliente_id</th>
-                    <th>vendedor_id</th>
-                    <th>produto_id</th>
-                    <th>quantidade</th>
-                    <th>valor</th>
-                    <th>valor_desconto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>SO43660</td>
-                    <td>2021-02-16</td>
-                    <td>614</td>
-                    <td>4</td>
-                    <td>43</td>
-                    <td>1</td>
-                    <td>112.00</td>
-                    <td>10.5227</td>
-                </tr>
-                <tr>
-                    <td>SO43660</td>
-                    <td>2021-02-16</td>
-                    <td>614</td>
-                    <td>4</td>
-                    <td>49</td>
-                    <td>1</td>
-                    <td>153.00</td>
-                    <td>14.3748</td>
-                </tr>
-            </tbody>
-        </table>
+							<th>valor_bruto</th>
+							<th>valor_venda</th>
+							<th>cliente_id</th>
+						</tr>
+					</thead>
+					<!-- Corpo da Tabela -->
+					<tbody>
+						<!-- Linha 01 -->
+						<tr>
+							<td>1</td>
+							<td>2021-02-16</td>
+							<td>SO43660</td>
+							<td>24.90</td>
+							<td>265.00</td>
+							<td>240.10</td>
+							<td>614</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3>Tabela ItensVendas</h3>
+				<table>
+					<!-- Cabeçalho da Tabela -->
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>vendas_id</th>
+							<th>produto_id</th>
+							<th>item_quantidade</th>
+							<th>valor_unitario</th>
+							<th>valor_bruto</th>
+						</tr>
+					</thead>
+					<!-- Corpo da Tabela -->
+					<tbody>
+						<tr><!-- Linha 01 -->
+							<td>13</td>
+							<td>1</td>
+							<td>43</td>
+							<td>1</td>
+							<td>112.00</td>
+							<td>112.00</td>
+						</tr>
+						<tr><!-- Linha 02 -->
+							<td>14</td>
+							<td>1</td>
+							<td>49</td>
+							<td>1</td>
+							<td>153.00</td>
+							<td>153.00</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3>Tabela ClientesVendedores</h3>
+				<table>
+					<!-- Cabeçalho da Tabela -->
+					<thead>
+						<tr>
+							<th>cliente_id</th>
+							<th>vendedor_id</th>
+						</tr>
+					</thead>
+					<!-- Corpo da Tabela -->
+					<tbody>
+						<tr>
+							<td>614</td>
+							<td>4</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					Agora precisamos trazer apenas 1 únita tabela de vendas pro final da consulta, o que fazer?
+					Podemos ver que o Desconto pertence a tabela de venda, e ao fazer o Left Join das duas tabelas
+					o desconto irá replicar, porém se você dividir o valor bruto da tabela ItensVendas (valor bruto
+					por produto) pelo valor bruto da tabela Vendas (valor bruto total) você tem a participação de
+					cada produto na venda, multiplica isto pelo valor de desconto, você encontra o rateio.<br><br>
+					Posteriormente basta selecionar as colunas, renomear de uma maneira padronizada e você jé tem
+					o resultado final esperado, como mostrado abaixo:
+				</p><br>
+				<h3>Resultado Final (Após Junção e Cálculos)</h3>
+				<table>
+					<!-- Cabeçalho da Tabela -->
+					<thead>
+						<tr>
+							<th>nfe</th>
+							<th>data</th>
+							<th>cliente_id</th>
+							<th>vendedor_id</th>
+							<th>produto_id</th>
+							<th>quantidade</th>
+							<th>valor</th>
+							<th>valor_desconto</th>
+						</tr>
+					</thead>
+					<!-- Cabeçalho da Tabela -->
+					<tbody>
+						<tr><!-- Linha 01 -->
+							<td>SO43660</td>
+							<td>2021-02-16</td>
+							<td>614</td>
+							<td>4</td>
+							<td>43</td>
+							<td>1</td>
+							<td>112.00</td>
+							<td>10.5227</td>
+						</tr>
+						<tr><!-- Linha 02 -->
+							<td>SO43660</td>
+							<td>2021-02-16</td>
+							<td>614</td>
+							<td>4</td>
+							<td>49</td>
+							<td>1</td>
+							<td>153.00</td>
+							<td>14.3748</td>
+						</tr>
+					</tbody>
+				</table>
         <h2>Código SQL</h2>
         <p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p>
         <pre>
