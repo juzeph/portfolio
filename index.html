@@ -1759,9 +1759,8 @@
 					</tbody>
 				</table>
 				<h1>Código SQL</h1>
-				<p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p>
-				<pre>
-SELECT 
+				<p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p><br>
+				<pre>SELECT 
 	v.nfe, 
 	v.data, 
 	v.cliente_id, 
@@ -1777,12 +1776,10 @@ LEFT JOIN
 LEFT JOIN 
 	ClientesVendedores cv ON v.cliente_id = cv.cliente_id
 WHERE 
-	v.id = 1;
-				</pre>
+	v.id = 1;</pre>
 				<h1>Código Power Query (M)</h1>
-        			<p>Abaixo os mesmos códigos em Power Query, porém utilizando Excel como Base de Dados:</p>
-				<pre>
-let
+        			<p>Abaixo os mesmos códigos em Power Query, porém utilizando Excel como Base de Dados:</p><br>
+				<pre>let
     Fonte = BaseDadosOLTP,
 
     TabelaVendas = 
@@ -1901,8 +1898,7 @@ let
         )
 
 in
-    EscolherColunas
-				<pre>
+    EscolherColunas<pre>
 			</section>
 		</div>
 	</div>
