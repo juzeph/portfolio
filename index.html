@@ -665,7 +665,7 @@
 			
 			<!-- PORTIFOLIO -->
 			<section id="portifolio">
-		                <h1>Portfólio em Power BI!</h1>
+		                <h1>Portfólio de Projetos de Power BI!</h1>
 		                <hr>
 		                <div class="filtros">
 		                  <nav>
@@ -826,7 +826,7 @@
 			</section>
 			
 			<section id="vendas">
-				<h1>Portfólio em Power BI!</h1>
+				<h1>Portfólio de Projetos de Power BI!</h1>
 				<hr>
 				<div class="filtros">
 					<nav><ul>
@@ -891,7 +891,7 @@
 			</section>
 			
 			<section id="logistica">
-				<h1>Portfólio em Power BI!</h1>
+				<h1>Portfólio de Projetos de Power BI!</h1>
 				<hr>
 				<div class="filtros">
 					<nav><ul>
@@ -940,7 +940,7 @@
 			</section>
 			
 			<section id="financeiro_dre">
-				<h1>Portfólio em Power BI!</h1>
+				<h1>Portfólio de Projetos de Power BI!</h1>
 				<hr>
 				<div class="filtros">
 					<nav><ul>
@@ -1004,7 +1004,7 @@
 			</section>
 			
 			<section id="outros">
-				<h1>Portfólio em Power BI!</h1>
+				<h1>Portfólio de Projetos de Power BI!</h1>
 				<hr>
 				<div class="filtros">
 					<nav><ul>
@@ -1430,7 +1430,7 @@
 
 			<!-- PROJETOS SQL E PYTHONS -->
 			<section id="Outros">
-		                <h1>Portfólio em Power BI!</h1>
+		                <h1>Outros Portifólios</h1>
 		                <hr>
 		                <div class="filtros">
 		                  <nav>
@@ -1491,7 +1491,7 @@
 			
 			<!-- PROJETOS SQL E PYTHONS -->
 			<section id="SQL">
-		                <h1>Portfólio em Power BI!</h1>
+		                <h1>Outros Portifólios</h1>
 		                <hr>
 		                <div class="filtros">
 		                  <nav>
@@ -1524,7 +1524,7 @@
 		
 			<!-- PROJETOS SQL E PYTHONS -->
 			<section id="Python">
-		                <h1>Portfólio em Power BI!</h1>
+		                <h1>Outros Portifólios</h1>
 		                <hr>
 		                <div class="filtros">
 		                  <nav>
@@ -1551,6 +1551,201 @@
 						</div>
 					</li></ul></nav>
 				</div>
+			</section>
+		
+			<!-- Primeiro Projeto SQL -->
+			<section id="SQL01">
+				<h2>Introdução</h2>
+				<p>
+					Ao trabalhar com grandes volumes de dados, a performance e eficiência são aspectos
+					cruciais a serem considerados. Embora o Power Query seja uma ferramenta poderosa 
+					para o tratamento de dados, o SQL oferece vantagens significativas em termos de 
+					velocidade e desempenho, especialmente quando lidamos com grandes bancos de dados 
+					relacionais.
+				</p>
+			</section>
+			<section>
+				<h2>Por que SQL é mais Performático?</h2>
+				<p>
+					SQL (Structured Query Language) foi projetado especificamente para gerenciar e 
+					manipular dados em bancos de dados relacionais. Aqui estão algumas razões pelas 
+					quais o SQL tende a ser mais eficiente do que o Power Query em muitos cenários:
+				</p>
+				<ul>
+					<li>
+						<strong>Otimização de Consultas:</strong> 
+						Motores de banco de dados, como SQL Server e PostgreSQL, são otimizados
+						para lidar com consultas complexas, usando índices, cache e outras
+						técnicas para acelerar a execução de queries.
+					</li>
+					<li>
+						<strong>Processamento no Servidor:</strong>
+						Ao executar uma query SQL, o processamento é feito diretamente no 
+						servidor, o que evita a transferência de grandes volumes de dados 
+						para o cliente, economizando tempo e recursos.
+					</li>
+            <li><strong>Paralelismo e Escalabilidade:</strong> Motores de banco de dados modernos são capazes de dividir o processamento entre múltiplos núcleos e servidores, o que melhora significativamente o desempenho em grandes operações de consulta.</li>
+            <li><strong>Uso de Tabelas Indexadas:</strong> SQL permite a criação de índices personalizados para melhorar a velocidade de busca e junção de tabelas, enquanto o Power Query depende do poder de processamento da máquina local.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Exemplo Prático</h2>
+        <p>A seguir, veja um exemplo prático usando dados reais. Ao filtrar a venda com <code>id = 1</code> nas tabelas de <code>Vendas</code> e <code>ItensVendas</code>, o resultado final é o seguinte:</p>
+        
+        <h3>Tabela Vendas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>data</th>
+                    <th>nfe</th>
+                    <th>nf_desconto</th>
+                    <th>valor_bruto</th>
+                    <th>valor_venda</th>
+                    <th>cliente_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2021-02-16</td>
+                    <td>SO43660</td>
+                    <td>24.90</td>
+                    <td>265.00</td>
+                    <td>240.10</td>
+                    <td>614</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Tabela ItensVendas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>vendas_id</th>
+                    <th>produto_id</th>
+                    <th>item_quantidade</th>
+                    <th>valor_unitario</th>
+                    <th>valor_bruto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>13</td>
+                    <td>1</td>
+                    <td>43</td>
+                    <td>1</td>
+                    <td>112.00</td>
+                    <td>112.00</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>1</td>
+                    <td>49</td>
+                    <td>1</td>
+                    <td>153.00</td>
+                    <td>153.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Tabela ClientesVendedores</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>cliente_id</th>
+                    <th>vendedor_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>614</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Resultado Final (Após Junção e Cálculos)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>nfe</th>
+                    <th>data</th>
+                    <th>cliente_id</th>
+                    <th>vendedor_id</th>
+                    <th>produto_id</th>
+                    <th>quantidade</th>
+                    <th>valor</th>
+                    <th>valor_desconto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SO43660</td>
+                    <td>2021-02-16</td>
+                    <td>614</td>
+                    <td>4</td>
+                    <td>43</td>
+                    <td>1</td>
+                    <td>112.00</td>
+                    <td>10.5227</td>
+                </tr>
+                <tr>
+                    <td>SO43660</td>
+                    <td>2021-02-16</td>
+                    <td>614</td>
+                    <td>4</td>
+                    <td>49</td>
+                    <td>1</td>
+                    <td>153.00</td>
+                    <td>14.3748</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Código SQL</h2>
+        <p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p>
+        <pre>
+SELECT 
+    v.nfe, 
+    v.data, 
+    v.cliente_id, 
+    cv.vendedor_id, 
+    iv.produto_id, 
+    iv.item_quantidade AS quantidade, 
+    iv.valor_unitario AS valor, 
+    ROUND((iv.valor_bruto * (v.nf_desconto / v.valor_bruto)), 4) AS valor_desconto
+FROM 
+    Vendas v
+JOIN 
+    ItensVendas iv ON v.id = iv.vendas_id
+JOIN 
+    ClientesVendedores cv ON v.cliente_id = cv.cliente_id
+WHERE 
+    v.id = 1;
+        </pre>
+    </section>
+
+    <section>
+        <h2>Código Power Query (M)</h2>
+        <p>O código abaixo demonstra como obter o mesmo resultado no Power Query:</p>
+        <pre>
+let
+    Fonte_Vendas = Vendas,
+    VendasFiltradas = Table.SelectRows(Fonte_Vendas, each [id] = 1),
+    ItensFiltrados = Table.SelectRows(ItensVendas, each [vendas_id] = 1),
+    ClientesVendedores = ClientesVendedores,
+    Juncoes = Table.Join(VendasFiltradas, "cliente_id", ClientesVendedores, "cliente_id", JoinKind.Inner),
+    ItensComJuncoes = Table.Join(Juncoes, "id", ItensFiltrados, "vendas_id", JoinKind.Inner),
+    Calculos = Table.AddColumn(ItensComJuncoes, "valor_desconto", each Number.Round([valor_bruto] * ([nf_desconto] / [valor_bruto]), 4))
+in
+    Calculos
+        </pre>
+				
 			</section>
 
 		</div>
