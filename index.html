@@ -1758,27 +1758,27 @@
 						</tr>
 					</tbody>
 				</table>
-        <h2>Código SQL</h2>
-        <p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p>
-        <pre>
-SELECT 
-    v.nfe, 
-    v.data, 
-    v.cliente_id, 
-    cv.vendedor_id, 
-    iv.produto_id, 
-    iv.item_quantidade AS quantidade, 
-    iv.valor_unitario AS valor, 
-    ROUND((iv.valor_bruto * (v.nf_desconto / v.valor_bruto)), 4) AS valor_desconto
-FROM 
-    Vendas v
-JOIN 
-    ItensVendas iv ON v.id = iv.vendas_id
-JOIN 
-    ClientesVendedores cv ON v.cliente_id = cv.cliente_id
-WHERE 
-    v.id = 1;
-        </pre>
+				<h1>Código SQL</h1>
+				<p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p>
+				<pre>
+					SELECT 
+						v.nfe, 
+						v.data, 
+						v.cliente_id, 
+					cv.vendedor_id, 
+					iv.produto_id, 
+					iv.item_quantidade AS quantidade, 
+					iv.valor_unitario AS valor, 
+					ROUND((iv.valor_bruto * (v.nf_desconto / v.valor_bruto)), 4) AS valor_desconto
+					FROM 
+					Vendas v
+					JOIN 
+					ItensVendas iv ON v.id = iv.vendas_id
+					JOIN 
+					ClientesVendedores cv ON v.cliente_id = cv.cliente_id
+					WHERE 
+					v.id = 1;
+				</pre>
         <h2>Código Power Query (M)</h2>
         <p>O código abaixo demonstra como obter o mesmo resultado no Power Query:</p>
         <pre>
