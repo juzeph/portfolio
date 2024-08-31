@@ -1455,7 +1455,7 @@
 					</p><br><br>
 					<nav><ul><li>
 						<div class="bttn-container">
-							<a data-section="projeto001" class="bttn">Ver Projeto</a>
+							<a data-section="SQL01" class="bttn">Ver Projeto</a>
 						</div>
 					</li></ul></nav>
 				</div>
@@ -1516,7 +1516,7 @@
 					</p><br><br>
 					<nav><ul><li>
 						<div class="bttn-container">
-							<a data-section="projeto001" class="bttn">Ver Projeto</a>
+							<a data-section="SQL01" class="bttn">Ver Projeto</a>
 						</div>
 					</li></ul></nav>
 				</div>
@@ -1584,23 +1584,35 @@
 						servidor, o que evita a transferência de grandes volumes de dados 
 						para o cliente, economizando tempo e recursos.
 					</li>
-            <li><strong>Paralelismo e Escalabilidade:</strong> Motores de banco de dados modernos são capazes de dividir o processamento entre múltiplos núcleos e servidores, o que melhora significativamente o desempenho em grandes operações de consulta.</li>
-            <li><strong>Uso de Tabelas Indexadas:</strong> SQL permite a criação de índices personalizados para melhorar a velocidade de busca e junção de tabelas, enquanto o Power Query depende do poder de processamento da máquina local.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Exemplo Prático</h2>
-        <p>A seguir, veja um exemplo prático usando dados reais. Ao filtrar a venda com <code>id = 1</code> nas tabelas de <code>Vendas</code> e <code>ItensVendas</code>, o resultado final é o seguinte:</p>
-        
-        <h3>Tabela Vendas</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>data</th>
-                    <th>nfe</th>
-                    <th>nf_desconto</th>
+					<li>
+						<strong>Paralelismo e Escalabilidade:</strong>
+						Motores de banco de dados modernos são capazes de dividir o processamento
+						entre múltiplos núcleos e servidores, o que melhora significativamente o
+						desempenho em grandes operações de consulta.
+					</li>
+					<li>
+						<strong>Uso de Tabelas Indexadas:</strong>
+						SQL permite a criação de índices personalizados para melhorar a velocidade 
+						de busca e junção de tabelas, enquanto o Power Query depende do poder de 
+						processamento da máquina local.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Exemplo Prático</h2>
+				<p>
+					A seguir, veja um exemplo prático usando dados reais. Ao filtrar a venda com 
+					<code>id = 1</code> nas tabelas de <code>Vendas</code> e <code>ItensVendas</code>,
+					o resultado final é o seguinte:
+				</p>
+				<h3>Tabela Vendas</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>data</th>
+							<th>nfe</th>
+							<th>nf_desconto</th>
                     <th>valor_bruto</th>
                     <th>valor_venda</th>
                     <th>cliente_id</th>
