@@ -1646,12 +1646,12 @@
 		   </table>
 
 		<h1>Código SQL</h1>
-		<p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p><br>
-		<pre>
+		<p>O código SQL a seguir demonstra como realizar essa junção e cálculos:</p><br>	
+
 <!-- -------------------------------------------------------------- -->
 <!-- ------------------------- CÓDIGO SQL ------------------------- -->
 <!-- -------------------------------------------------------------- -->
-SELECT 
+<pre>SELECT 
 	v.nfe, 
 	v.data, 
 	v.cliente_id, 
@@ -1667,18 +1667,15 @@ LEFT JOIN
 LEFT JOIN 
 	ClientesVendedores cv ON v.cliente_id = cv.cliente_id
 WHERE 
-	v.id = 1;
-		
-		</pre>
+	v.id = 1;</pre>
 		
 		<h1>Código Power Query (M)</h1>
         	<p>Abaixo os mesmos códigos em Power Query, porém utilizando Excel como Base de Dados:</p><br>
-		<pre>
 
 <!-- -------------------------------------------------------------- -->
 <!-- ------------------- CÓDIGO M (POWER QUERY) ------------------- -->
 <!-- -------------------------------------------------------------- -->
-let
+<pre>let
     Fonte = BaseDadosOLTP,
 
     TabelaVendas = 
@@ -1797,9 +1794,7 @@ let
         )
 
 in
-    EscolherColunas
-		
-		</pre>
+    EscolherColunas</pre>
 		<h1>Conclusões:</h1>
 	    	<p>Quanto antes as alterações forem feitas, melhor será, então tente sempre fazer as 
 		transformações anteriormente antes de traze-las para o Power BI, isso gerará mais
